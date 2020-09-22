@@ -1,0 +1,4 @@
+created_by_id,created_at,updated_by_id,updated_at,deleted,first_name,middle_name,last_name,email,phone,password,enabled
+1,1970-01-01T00:00:00.000,1,2020-04-04T10:10:26.853,false,admin,admin,admin,mail@gmail.com,null,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
+1,1970-01-01T00:00:00.000,1,2020-04-04T10:10:26.853,false,manager,manager,manager,mail2@gmail.com,null,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
+1,1970-01-01T00:00:00.000,1,2020-04-04T10:10:26.853,false,user,user,user,mail3@gmail.com,null,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
