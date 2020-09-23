@@ -8,10 +8,13 @@ import com.manivchuk.board.persistence.entity.user.User;
 import com.manivchuk.board.service.user.UserService;
 import com.manivchuk.board.service.user.role.RoleUtils;
 import com.manivchuk.board.transport.dto.user.UserUpdateEmailDto;
+import com.manivchuk.board.transport.dto.user.UserUpdatePasswordDto;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.jws.soap.SOAPBinding;
 
 @Service
 @Setter(onMethod_ = @Autowired)
@@ -48,6 +51,13 @@ public class UserValidationServiceImpl implements UserValidationService {
     @Override
     public void validateRecovering(User user) {
         validateDeletingRecoveringPermissions(user);
+    }
+
+    @Override
+    public void validatePassword(User user, UserUpdatePasswordDto dto) {
+        String password = passwordEncoder.encode(dto.getPassword());
+        System.out.println("new password = " + password);
+        user.setPassword(password);
     }
 
     private void validateOldAndNewEmailNotEqual(UserUpdateEmailDto dto) {

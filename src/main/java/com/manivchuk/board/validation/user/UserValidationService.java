@@ -3,6 +3,7 @@ package com.manivchuk.board.validation.user;
 import com.manivchuk.board.persistence.entity.user.User;
 import com.manivchuk.board.service.actor.ActorService;
 import com.manivchuk.board.transport.dto.user.UserUpdateEmailDto;
+import com.manivchuk.board.transport.dto.user.UserUpdatePasswordDto;
 
 public interface UserValidationService extends ActorService {
 
@@ -15,4 +16,6 @@ public interface UserValidationService extends ActorService {
     void validateUpdatingEmail(User user, UserUpdateEmailDto dto);
 
     void validateRecovering(User user);
+
+    void validatePassword(User user, UserUpdatePasswordDto dto);
 }

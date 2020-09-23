@@ -18,10 +18,22 @@ import javax.validation.constraints.NotNull;
 public class UserCreateDto {
 
     @NotBlank
+    @NotNull
+    private String firstName;
+
+    @NotNull
+    @NotBlank
+    private String lastName;
+
+    @NotBlank
     @Email
     private String email;
 
     @NotNull
-    @UserRoleSubset(anyOf = {UserRole.ADMIN, UserRole.MANAGER})
+    @NotBlank
+    private String password;
+
+    @NotNull
+    @UserRoleSubset(anyOf = {UserRole.ADMIN, UserRole.MANAGER, UserRole.USER})
     private UserRole userRole;
 }

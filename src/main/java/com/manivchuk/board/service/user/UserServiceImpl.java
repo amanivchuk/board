@@ -5,10 +5,7 @@ import com.manivchuk.board.exception.user.UserNotFoundException;
 import com.manivchuk.board.persistence.entity.user.User;
 import com.manivchuk.board.persistence.repository.UserRepository;
 import com.manivchuk.board.service.password.Generator;
-import com.manivchuk.board.transport.dto.user.UserCreateDto;
-import com.manivchuk.board.transport.dto.user.UserOutcomeDto;
-import com.manivchuk.board.transport.dto.user.UserUpdateDto;
-import com.manivchuk.board.transport.dto.user.UserUpdateEmailDto;
+import com.manivchuk.board.transport.dto.user.*;
 import com.manivchuk.board.transport.mapper.user.UserMapper;
 import com.manivchuk.board.validation.user.UserValidationService;
 import lombok.Setter;
@@ -38,16 +35,13 @@ public class UserServiceImpl implements UserService {
 
         userValidationService.validateCreation(user);
 
-        String password = Generator.generatePassword(9);
-        System.out.println(password);//todo It will delete
-
-        User actor = getActorFromContext();
+//        User actor = getActorFromContext();
         user.setCreatedAt(Instant.now());
-        user.setCreatedBy(actor);
+//        user.setCreatedBy(actor);
         user.setUpdatedAt(Instant.now());
-        user.setUpdatedBy(actor);
+//        user.setUpdatedBy(actor);
         user.setEnabled(true);
-        user.setPassword(passwordEncoder.encode(password));
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
 
         return userRepository.save(user);
     }
@@ -120,5 +114,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    @Override
+    public Long updatePassword(Long id, UserUpdatePasswordDto dto) {
+        User user = findByIdUnsafe(getActorFromContext().getId());
+
+        userValidationService.validatePassword(user, dto);
+
+        return user.getId();
     }
 }

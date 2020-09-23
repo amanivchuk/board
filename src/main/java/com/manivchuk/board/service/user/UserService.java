@@ -3,10 +3,7 @@ package com.manivchuk.board.service.user;
 
 import com.manivchuk.board.persistence.entity.user.User;
 import com.manivchuk.board.service.actor.ActorService;
-import com.manivchuk.board.transport.dto.user.UserCreateDto;
-import com.manivchuk.board.transport.dto.user.UserOutcomeDto;
-import com.manivchuk.board.transport.dto.user.UserUpdateDto;
-import com.manivchuk.board.transport.dto.user.UserUpdateEmailDto;
+import com.manivchuk.board.transport.dto.user.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,4 +32,5 @@ public interface UserService extends ActorService {
 
     boolean existsByEmail(String email);
 
+    Long updatePassword(Long id, UserUpdatePasswordDto dto);
 }

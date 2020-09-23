@@ -1,10 +1,7 @@
 package com.manivchuk.board.controller;
 
 import com.manivchuk.board.service.user.UserService;
-import com.manivchuk.board.transport.dto.user.UserCreateDto;
-import com.manivchuk.board.transport.dto.user.UserOutcomeDto;
-import com.manivchuk.board.transport.dto.user.UserUpdateDto;
-import com.manivchuk.board.transport.dto.user.UserUpdateEmailDto;
+import com.manivchuk.board.transport.dto.user.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -98,6 +95,21 @@ public class UserController {
     @PutMapping("email")
     public Long updateEmail(@RequestBody UserUpdateEmailDto dto) {
         return userService.update(dto);
+    }
+
+    @ApiOperation(value = "Update a user's password", notes = "ADMIN, MANAGER, USER", nickname = "updatePassword")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Update accepted"),
+            @ApiResponse(code = 400, message = "Not valid dto"),
+            @ApiResponse(code = 401, message = "Not correct token"),
+            @ApiResponse(code = 403, message = "User doesn't have permission"),
+            @ApiResponse(code = 404, message = "Not correct data"),
+    })
+    @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
+    @PutMapping("password/{id}")
+    public Long updatePassword(@PathVariable Long id, @RequestBody UserUpdatePasswordDto dto) {
+        return userService.updatePassword(id, dto);
     }
 
     @ApiOperation(value = "Finding users", notes = "ADMIN, MANAGER", nickname = "findAllUsers")
