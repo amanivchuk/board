@@ -31,7 +31,7 @@ public class BoardController {
 
     private BoardService boardService;
 
-    @ApiOperation(value = "Create a board", notes = "ADMIN, MANAGER", nickname = "createBoard")
+    @ApiOperation(value = "Create a board", notes = "ADMIN, MANAGER, USER", nickname = "createBoard")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successfully created"),
             @ApiResponse(code = 400, message = "Not valid dto"),
@@ -39,10 +39,11 @@ public class BoardController {
             @ApiResponse(code = 403, message = "User doesn't have permission"),
             @ApiResponse(code = 404, message = "Not correct data"),
     })
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MAMANGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MAMANGER', 'USER')")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Long create(@RequestBody @Valid BoardCreateDto dto){
+        System.out.println(dto);
         return boardService.create(dto).getId();
     }
 
@@ -54,13 +55,13 @@ public class BoardController {
             @ApiResponse(code = 404, message = "Not correct data"),
     })
     @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id){
         boardService.delete(id);
     }
 
-    @ApiOperation(value = "Update a board", notes = "ADMIN, MANAGER", nickname = "updateBoard")
+    @ApiOperation(value = "Update a board", notes = "ADMIN, MANAGER, USER", nickname = "updateBoard")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Update accepted"),
             @ApiResponse(code = 400, message = "Not valid dto"),
@@ -69,20 +70,20 @@ public class BoardController {
             @ApiResponse(code = 404, message = "Not correct data"),
     })
     @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
     @PutMapping()
     public Long update(@RequestBody @Valid BoardUpdateDto dto) {
         return boardService.update(dto);
     }
 
-    @ApiOperation(value = "Finding boards", notes = "ADMIN, MANAGER", nickname = "findAllBoards")
+    @ApiOperation(value = "Finding boards", notes = "ADMIN, MANAGER, USER", nickname = "findAllBoards")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully found"),
             @ApiResponse(code = 400, message = "Not valid dto"),
             @ApiResponse(code = 401, message = "Not correct token"),
     })
     @ResponseStatus(code = HttpStatus.OK)
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
     @GetMapping
     public List<BoardOutcomeDto> getAll() {
         return boardService.getAll();
@@ -94,7 +95,7 @@ public class BoardController {
             @ApiResponse(code = 400, message = "Not valid dto"),
             @ApiResponse(code = 401, message = "Not correct token"),
     })
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
     @PostMapping("/search")
     public ResponseEntity<Page<BoardOutcomeDto>> searchEmployeeGeneral(@RequestBody BoardSearchValues boardSearchValues) {
 

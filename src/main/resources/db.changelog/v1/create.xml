@@ -16,20 +16,20 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="users_pkey" nullable="false"/>
             </column>
-            <column name="created_by_id" type="bigint">
-                <constraints nullable="false" foreignKeyName="users_created_by_id_fk" referencedTableName="users"
-                             referencedColumnNames="id"/>
-            </column>
-            <column name="created_at" type="timestamp">
-                <constraints nullable="false"/>
-            </column>
-            <column name="updated_by_id" type="bigint">
-                <constraints nullable="false" foreignKeyName="users_updated_by_id_fk" referencedTableName="users"
-                             referencedColumnNames="id"/>
-            </column>
-            <column name="updated_at" type="timestamp">
-                <constraints nullable="false"/>
-            </column>
+<!--            <column name="created_by_id" type="bigint">-->
+<!--                <constraints nullable="false" foreignKeyName="users_created_by_id_fk" referencedTableName="users"-->
+<!--                             referencedColumnNames="id"/>-->
+<!--            </column>-->
+<!--            <column name="created_at" type="timestamp">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="updated_by_id" type="bigint">-->
+<!--                <constraints nullable="false" foreignKeyName="users_updated_by_id_fk" referencedTableName="users"-->
+<!--                             referencedColumnNames="id"/>-->
+<!--            </column>-->
+<!--            <column name="updated_at" type="timestamp">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
             <column name="deleted" type="boolean" defaultValue="false">
                 <constraints nullable="false"/>
             </column>

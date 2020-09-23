@@ -28,10 +28,6 @@ public class BoardValidationServiceImpl implements BoardValidationService {
     }
 
     private void validateCreatingDeletingUpdatingPermissions() {
-        User actor = getActorFromContext();
 
-        if(!RoleUtils.isAdmin(actor) && !RoleUtils.isManager(actor)){
-            throw new ForbiddenException();
-        }
     }
 }

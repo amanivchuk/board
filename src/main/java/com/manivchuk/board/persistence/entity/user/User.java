@@ -2,6 +2,7 @@ package com.manivchuk.board.persistence.entity.user;
 
 import com.manivchuk.board.persistence.entity.board.Board;
 import com.manivchuk.board.persistence.entity.general.IdEntityCreatedUpdatedDeleted;
+import com.manivchuk.board.persistence.entity.general.IdEntityDeleted;
 import com.manivchuk.board.persistence.entity.token.Token;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class User extends IdEntityCreatedUpdatedDeleted implements UserDetails {
+public class User extends IdEntityDeleted implements UserDetails {
 
     private String firstName;
 

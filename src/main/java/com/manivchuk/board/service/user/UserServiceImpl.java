@@ -36,9 +36,9 @@ public class UserServiceImpl implements UserService {
         userValidationService.validateCreation(user);
 
 //        User actor = getActorFromContext();
-        user.setCreatedAt(Instant.now());
+//        user.setCreatedAt(Instant.now());
 //        user.setCreatedBy(actor);
-        user.setUpdatedAt(Instant.now());
+//        user.setUpdatedAt(Instant.now());
 //        user.setUpdatedBy(actor);
         user.setEnabled(true);
         user.setPassword(passwordEncoder.encode(dto.getPassword()));

@@ -32,7 +32,7 @@ public class UserController {
             @ApiResponse(code = 403, message = "User doesn't have permission"),
             @ApiResponse(code = 404, message = "Not correct data"),
     })
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Long create(@RequestBody @Valid UserCreateDto dto){
@@ -132,7 +132,7 @@ public class UserController {
             @ApiResponse(code = 401, message = "Not correct token"),
     })
     @ResponseStatus(code = HttpStatus.OK)
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
     @GetMapping("{id}")
     public UserOutcomeDto get(@PathVariable Long id){
         return userService.get(id);

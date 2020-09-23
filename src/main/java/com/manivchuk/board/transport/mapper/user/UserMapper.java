@@ -19,8 +19,8 @@ public abstract class UserMapper {
     @Mapping(target = "authorities", expression = "java(Collections.singletonList(dto.getUserRole()))")
     public abstract User toEntity(UserCreateDto dto);
 
-    @Mapping(target = "createdById", expression = "java(user.getCreatedBy().getId())")
-    @Mapping(target = "updatedById", expression = "java(user.getUpdatedBy().getId())")
+//    @Mapping(target = "createdById", expression = "java(user.getCreatedBy().getId())")
+//    @Mapping(target = "updatedById", expression = "java(user.getUpdatedBy().getId())")
     public abstract UserOutcomeDto toDto(User user);
 
     public abstract User toEntity(UserUpdateDto dto, @MappingTarget User user);

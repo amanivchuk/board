@@ -16,6 +16,7 @@ import java.util.Collections;
 @Setter(onMethod_ = @Autowired)
 public abstract class BoardMapper {
 
+//    @Mapping(target = "picture", expression = "java(dto.getPicture().getBytes())")
     public abstract Board toEntity(BoardCreateDto dto);
 
     @Mapping(target = "user", source = "board.createdBy")

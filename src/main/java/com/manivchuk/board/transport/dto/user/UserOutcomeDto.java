@@ -10,6 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserOutcomeDto extends IdCreatedUpdatedDeletedDto {
 
+    private Long id;
+
     private String firstName;
 
     private String middleName;
