@@ -32,7 +32,6 @@ public class UserController {
             @ApiResponse(code = 403, message = "User doesn't have permission"),
             @ApiResponse(code = 404, message = "Not correct data"),
     })
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Long create(@RequestBody @Valid UserCreateDto dto){

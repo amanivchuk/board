@@ -1,4 +1,6 @@
-deleted,first_name,middle_name,last_name,email,phone,password,enabled
-false,admin,admin,admin,mail@gmail.com,null,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
-false,manager,manager,manager,mail2@gmail.com,null,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
-false,user,user,user,mail3@gmail.com,null,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
+deleted,first_name,last_name,email,password,enabled
+false,admin,admin,mail@gmail.com,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
+false,manager,manager,mail2@gmail.com,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
+false,user,user,mail3@gmail.com,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
+false,Иван,Иванов,ivanov@gmail.com,$2a$10$o8Ng3YtGtJUu6pmKbextmOEyAyuQys27FkydHbk/Aacj8Sgl7VCui,true
+

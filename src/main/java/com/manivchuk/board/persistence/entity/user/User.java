@@ -24,14 +24,10 @@ public class User extends IdEntityDeleted implements UserDetails {
 
     private String firstName;
 
-    private String middleName;
-
     private String lastName;
 
     @Column(nullable = false, unique = true)
     private String email;
-
-    private String phone;
 
     @Column(nullable = false)
     private String password;

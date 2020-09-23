@@ -14,11 +14,8 @@ public class UserOutcomeDto extends IdCreatedUpdatedDeletedDto {
 
     private String firstName;
 
-    private String middleName;
-
     private String lastName;
 
     private String email;
 
-    private String phone;
 }

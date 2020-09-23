@@ -25,7 +25,6 @@ public class UserValidationServiceImpl implements UserValidationService {
 
     @Override
     public void validateCreation(User user) {
-        validateCreationPermissions(user);
         validateUniqueEmail(user.getEmail());
     }
 
@@ -115,7 +114,7 @@ public class UserValidationServiceImpl implements UserValidationService {
 
         if (RoleUtils.isAdmin(actor)) {
             if (RoleUtils.isUser(user)) {
-                throw new ForbiddenException(); //todo because admin can only blocked & unblocked user but not delete!!!
+                throw new ForbiddenException();
             }
         }
 
@@ -132,17 +131,4 @@ public class UserValidationServiceImpl implements UserValidationService {
         }
     }
 
-    private void validateCreationPermissions(User user) {
-        User actor = getActorFromContext();
-
-        if (RoleUtils.isManager(actor)) {
-            if (!RoleUtils.isManager(user)) {
-                throw new ForbiddenException();
-            }
-        }
-
-        if (RoleUtils.isUser(actor)) {
-            throw new ForbiddenException();
-        }
-    }
 }
