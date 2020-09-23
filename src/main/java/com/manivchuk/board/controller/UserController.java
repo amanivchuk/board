@@ -95,7 +95,7 @@ public class UserController {
     })
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER', 'USER')")
-    @PatchMapping("email")
+    @PutMapping("email")
     public Long updateEmail(@RequestBody UserUpdateEmailDto dto) {
         return userService.update(dto);
     }
@@ -111,5 +111,18 @@ public class UserController {
     @GetMapping
     public List<UserOutcomeDto> getAll(){
         return userService.getAll();
+    }
+
+    @ApiOperation(value = "Finding user", notes = "ADMIN, MANAGER", nickname = "findUser")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully found"),
+            @ApiResponse(code = 400, message = "Not valid dto"),
+            @ApiResponse(code = 401, message = "Not correct token"),
+    })
+    @ResponseStatus(code = HttpStatus.OK)
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @GetMapping("{id}")
+    public UserOutcomeDto get(@PathVariable Long id){
+        return userService.get(id);
     }
 }

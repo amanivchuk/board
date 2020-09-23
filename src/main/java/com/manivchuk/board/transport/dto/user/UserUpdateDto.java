@@ -16,14 +16,6 @@ public class UserUpdateDto {
 
     @NotNull
     @NotBlank
-    private String middleName;
-
-    @NotNull
-    @NotBlank
     private String lastName;
-
-    @NotNull
-    @NotBlank
-    private String phone;
 
 }

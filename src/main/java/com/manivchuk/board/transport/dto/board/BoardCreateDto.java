@@ -19,8 +19,6 @@ public class BoardCreateDto {
     @NotNull
     private String title;
 
-    @NotBlank
-    @NotNull
     private byte[] photo;
 
     @NotBlank

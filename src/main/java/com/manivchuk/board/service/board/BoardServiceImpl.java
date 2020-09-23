@@ -39,7 +39,6 @@ public class BoardServiceImpl implements BoardService {
         board.setCreatedBy(actor);
         board.setUpdatedAt(Instant.now());
         board.setUpdatedBy(actor);
-//        board.setAuthor(actor.getLastName());
         boardValidationService.validateCreation(board);
 
         return boardRepository.save(board);

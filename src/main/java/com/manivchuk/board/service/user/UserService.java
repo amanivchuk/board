@@ -31,6 +31,8 @@ public interface UserService extends ActorService {
 
     List<UserOutcomeDto> getAll();
 
+    UserOutcomeDto get(Long id);
+
     boolean existsByEmail(String email);
 
 }
