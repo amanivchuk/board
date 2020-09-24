@@ -1,0 +1,10 @@
+.input-style input {
+  color: black;
+  size: 14px;
+}
+
+.input-style textarea {
+  height: 350px;
+  color: black;
+  size: 14px;
+}

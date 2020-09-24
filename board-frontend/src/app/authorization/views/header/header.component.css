@@ -1,0 +1,13 @@
+.header-icon {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.settings button {
+  margin-right: 0;
+}
+
+.region {
+  font-weight: bold;
+  text-transform: capitalize;
+}

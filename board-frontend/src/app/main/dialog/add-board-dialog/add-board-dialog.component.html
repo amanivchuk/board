@@ -1,0 +1,65 @@
+<p mat-dialog-title>{{dialogTitle}}</p>
+<hr>
+<mat-dialog-content>
+
+  <!--<mat-card class="example-card">
+    <img *ngIf="tmpImageURL; else employeePhoto" [src]="tmpImageURL"
+         alt="Photo of a Shiba Inu" mat-card-image>
+    <ng-template #employeePhoto>
+      <img src="{{'data:image/jpeg;base64,'+ newPicture}}">
+      &lt;!&ndash;            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo ">&ndash;&gt;
+    </ng-template>
+    <mat-card-actions>
+      <input #file #fileInput (change)="fileSelected(file.files)" accept='image/*' style="display: none"
+             type="file">
+      <button (click)="fileInput.click()" mat-button>Выбрать файл</button>
+    </mat-card-actions>
+  </mat-card>
+-->
+  <mat-form-field>
+    <mat-label>Заголовок</mat-label>
+    <input #inputTitle
+           [(ngModel)]="newTitle"
+           matInput
+           placeholder="Заголовок"
+    >
+    <button (click)="newTitle=''"
+            *ngIf="newTitle && newTitle.trim().length > 0" aria-label="Clear"
+            class="dialog-task-title" mat-button
+            mat-icon-button matSuffix>
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Текст</mat-label>
+    <textarea #inputText
+              [(ngModel)]="newText"
+              matInput
+              placeholder="Текст"
+    ></textarea>
+    <button (click)="newText=''"
+            *ngIf="newText && newText.trim().length > 0"
+            aria-label="Clear"
+            class="dialog-task-title" mat-button
+            mat-icon-button matSuffix>
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-dialog-content>
+
+<hr>
+
+<!--кнопки возможных действий-->
+<mat-dialog-actions>
+  <div class="col-md-8 col-12">
+    <button (click)="confirm()"
+            [disabled]="validInputData()"
+            color="primary"
+            mat-raised-button>
+      Сохранить
+    </button>
+
+    <button (click)="cancel()" mat-raised-button>Отмена</button>
+  </div>
+
+</mat-dialog-actions>

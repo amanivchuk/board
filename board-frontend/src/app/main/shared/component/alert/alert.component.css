@@ -1,0 +1,6 @@
+.alert-wrap {
+  position: fixed;
+  top: 40px;
+  right: 30%;
+  min-width: 200px;
+}

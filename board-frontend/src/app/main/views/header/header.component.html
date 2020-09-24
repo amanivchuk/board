@@ -1,0 +1,22 @@
+<div class="container-fluid settings">
+  <div class="col-8 text-left align-self-top">
+    <p class="navbar-brand">Bulletin Board</p>
+  </div>
+
+  <!--помощь, настройки-->
+  <div class="col-4 text-right align-self-top">
+    <button [matMenuTriggerFor]="menu" mat-button>Настройки</button>
+    <mat-menu #menu="matMenu">
+      <button (click)="showEditProfile()" mat-menu-item>Редактировать профиль</button>
+      <button (click)="showEditEmail()" mat-menu-item>Редактировать email</button>
+      <button (click)="showEditPassword()" mat-menu-item>Редактировать пароль</button>
+
+    </mat-menu>
+
+    <button (click)="logout()" class="header-icon" mat-button>Выход</button>
+
+    <!--    <button class="header-icon" mat-icon-button>-->
+    <!--      <mat-icon>help</mat-icon>-->
+    <!--    </button>-->
+  </div>
+</div>

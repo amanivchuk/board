@@ -1,0 +1,41 @@
+<div *ngIf="spinner && spinner.visibility | async" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+<app-alert></app-alert>
+<div class="wrapper">
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <app-header
+        (editProfile)="editProfile($event)"
+        (editUserEmail)="editEmail($event)"
+        (editUserPassword)="editPassword($event)"
+        [user]="user"
+      ></app-header>
+    </nav>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row page-up-position">
+          <div class="col-12">
+            <app-board
+              (addBoard)="addBoards($event.boardCreateDto, $event.formData)"
+              (deleteBoard)="deleteBoard($event)"
+              (editBoard)="editBoard($event)"
+              (paging)="paging($event)"
+              (searchAction)="searchBoard($event)"
+
+              [boardSearchValues]="boardSearchValues"
+              [boards]="boards"
+              [showSearch]="showSearch"
+              [totalBoardFounded]="totalBoardFounded"
+              [userId]="userId"
+            ></app-board>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

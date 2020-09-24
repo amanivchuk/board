@@ -1,0 +1,65 @@
+<p mat-dialog-title>{{dialogTitle}}</p>
+<hr>
+<mat-dialog-content>
+
+  <div class="input-style">
+    <mat-form-field>
+      <mat-label>Заголовок</mat-label>
+      <input #inputTitle [(ngModel)]="board.title" disabled
+             matInput
+             placeholder="Заголовок"
+             style="color: black"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Текст</mat-label>
+      <textarea #inputText [(ngModel)]="board.text" disabled
+                matInput
+                placeholder="Текст"
+                rows="12"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Дата редактирования</mat-label>
+      <input [value]="board.dateAdd | boardDate" disabled
+             matInput
+             placeholder="Дата редактирования"
+             type="text"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Содатель</mat-label>
+      <input #inputCreated [(ngModel)]="board.user.lastName"
+             disabled
+             matInput
+             placeholder="Создано"
+      >
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<hr>
+
+<!--кнопки возможных действий-->
+<mat-dialog-actions>
+  <div class="col-md-8 col-12">
+    <button (click)="$event.stopPropagation(); editBoard()" *ngIf="checkPermission()"
+            color="primary"
+            mat-raised-button>
+      Редактировать
+    </button>
+
+    <button (click)="cancel()" mat-raised-button>Закрыть</button>
+  </div>
+
+  <div class="col-md-4 col-12 text-right">
+    <button
+      (click)="delete()"
+      *ngIf="checkPermission()"
+      class="red"
+      mat-button
+    >
+      Удалить
+    </button>
+  </div>
+</mat-dialog-actions>

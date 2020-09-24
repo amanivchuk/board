@@ -1,0 +1,14 @@
+form {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 10px;
+}
+
+.btn-primary.login-btn {
+  background-color: #343A40;
+  border-color: #343A40;
+}
+
+h2 {
+  text-align: center;
+}
