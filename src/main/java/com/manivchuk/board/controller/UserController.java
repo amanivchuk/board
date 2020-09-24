@@ -136,4 +136,16 @@ public class UserController {
     public UserOutcomeDto get(@PathVariable Long id){
         return userService.get(id);
     }
+
+    @ApiOperation(value = "Check email", notes = "ADMIN, MANAGER, USER", nickname = "checkEmail")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully found"),
+            @ApiResponse(code = 400, message = "Not valid dto"),
+            @ApiResponse(code = 401, message = "Not correct token"),
+    })
+    @ResponseStatus(code = HttpStatus.OK)
+    @GetMapping("/check/{email}")
+    public Boolean get(@PathVariable String email){
+        return userService.existsByEmail(email);
+    }
 }
